@@ -1,0 +1,48 @@
+html {
+  background-color: gainsboro;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  outline-color: blue;
+  padding-bottom: 60px;
+}
+
+.profile-image {
+  width: 170px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  border-radius: 50%;
+  border: 4px solid #007bff;
+}
+
+body {
+  width: 600px;
+  margin: 0 auto;
+  background-color: gainsboro;
+  padding: 0 20px 20px 20px;
+  border: 5px solid gainsboro;
+}
+.projek1 {
+  background-color: white;
+  width: 650px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+.projek_link {
+  background-color: white;
+  width: 650px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+.kontak {
+  background-color: white;
+  width: 650px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+h2 {
+  color: blue;
+}
