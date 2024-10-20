@@ -1,0 +1,88 @@
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    font-size: 1rem;
+    margin-right: 10px;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    text-align: center;
+    padding: 50px;
+}
+
+.todo-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: plum;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    background-color: white;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+li button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+li button:hover {
+    background-color: darkred;
+}

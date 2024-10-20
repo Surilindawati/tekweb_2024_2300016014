@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Page Appearance</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Ubah Tampilan</h1>
+
+    <!-- Change Background Color -->
+    <label for="bgColor">Warna Latar Belakang:</label>
+    <select id="bgColor">
+        <option value="white">White</option>
+        <option value="lightgray">Light Gray</option>
+        <option value="purple">purple</option>
+        <option value="Pink">pink</option>
+    </select>
+
+    <!-- Change Font Size -->
+    <br><br>
+    <label for="fontSize">Font Size:</label>
+    <input type="range" id="fontSize" min="10" max="30" value="16">
+
+    <!-- Toggle Dark Mode -->
+    <br><br>
+    <button id="darkModeToggle">Dark Mode</button>
+
+    <!-- Change Font Style (Bonus) -->
+    <br><br>
+    <label for="fontStyle">Select Font Style:</label>
+    <select id="fontStyle">
+        <option value="sans-serif">Sans-serif</option>
+        <option value="serif">Serif</option>
+    </select>
+    <div class="todo-container">
+        <input type="text" id="taskInput" placeholder="Add a new task...">
+        <button id="addTaskBtn">Add</button>
+        <ul id="taskList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
