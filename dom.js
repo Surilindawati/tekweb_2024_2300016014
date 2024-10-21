@@ -1,5 +1,5 @@
 // Dont change anything in this file
-
+import {generatepassword } from './script.js';
 document.getElementById('generateBtn').addEventListener('click', () => {
     const length = parseInt(document.getElementById('length').value, 10);
     const options = {
@@ -12,6 +12,14 @@ document.getElementById('generateBtn').addEventListener('click', () => {
     const password = generatePassword(length, options);
     document.getElementById('passwordOutput').textContent = password;
 });
+
+    try{
+        const password = generatepassword(lenght, options);
+        document.getElementById(passwordOutput)textContent = password;
+
+    } catch (error) {
+        alert(eror.message);// show the error message in alert
+    }
 
 // Copy to Clipboard functionality
 document.getElementById('copyBtn').addEventListener('click', () => {

@@ -24,4 +24,37 @@ h1 {
     color: #4a4a4a; /* Header color */
 }
 
-/* Add more styles here as needed */
+label{
+    margin: 10px;
+    font-size:1em;
+}
+
+input[type="number"]{
+    margin-bottom: 15px;
+    padding: 8px;
+    width: 60px;
+    font-size: 1em;
+    text-align: center;
+}
+
+button {
+    background-color: palevioletred;
+    color: #e0e7ff;
+    padding: 10px20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover{
+    background-color: rgb(24, 0, 209);
+}
+
+#passwordOutput {
+    font-size: 1.2em;
+    margin-top: 20px;
+    background-color: #e0e7ff;
+    padding: 10px;
+    border-radius: 5px;
+}
