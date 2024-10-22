@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Password Generator</h1>
@@ -15,22 +17,30 @@
 
         <h3>Select criteria:</h3>
         <!-- TODO: Create checkboxes for including uppercase, lowercase, numbers, and special characters -->
-        <label>
-            <input type="checkbox" id="includeUppercase"> Include Uppercase
-        </label><br>
-        <label>
-            <input type="checkbox" id="includeLowercase"> Include Lowercase
-        </label><br>
-        <label>
-            <input type="checkbox" id="includeNumbers"> Include Numbers
-        </label><br>
-        <label>
-            <input type="checkbox" id="includeSpecialChars"> Include Special Characters
-        </label><br>
-        
+        <div class="upper">
+            <label>
+                <input type="checkbox" id="includeUppercase"> Include Uppercase
+            </label><br>
+        </div>
+        <div class="lower">
+            <label>
+                <input type="checkbox" id="includeLowercase"> Include Lowercase
+            </label><br>
+        </div>
+        <div class="number">
+            <label>
+                <input type="checkbox" id="includeNumbers"> Include Numbers
+            </label><br>
+        </div>
+        <div class="chars">
+            <label>
+                <input type="checkbox" id="includeSpecialChars"> Include Special Characters
+            </label><br>
+        </div>
+
         <!-- TODO: Create a button to generate the password -->
         <button id="generateBtn">Generate Password</button>
-        
+
         <!-- TODO: Create a text field to display the generated password -->
         <p id="passwordOutput"></p>
 
@@ -41,4 +51,5 @@
     <script src="script.js"></script>
     <script src="dom.js"></script>
 </body>
+
 </html>
