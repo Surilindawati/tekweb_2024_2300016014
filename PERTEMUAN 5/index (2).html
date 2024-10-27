@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>To-Do App with Appearance Settings</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            font-size: 16px;
+            color: palevioletred;
+            background-color: white;
+        }
+
+        .container {
+            width: 350px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            color: palevioletred;
+        }
+
+        #taskList {
+            list-style: none;
+            padding: 0;
+            color: palevioletred;
+        }
+
+        #taskList li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: palevioletred;
+        }
+
+        .close {
+            color: red;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: palevioletred;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: palevioletred;
+        }
+
+        .appearance-controls button, .appearance-controls select, button {
+            margin: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            color: palevioletred;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>My To-Do List</h2>
+        <input type="text" id="newTask" placeholder="Add a new task...">
+        <button onclick="addTask()">Add</button>
+
+        <ul id="taskList"></ul>
+
+        <h2>Change Appearance</h2>
+
+        <div class="appearance-controls">
+            <select onchange="changeBackgroundColor(this.value)">
+                <option>Select Background Color</option>
+                <option value="white">White</option>
+                <option value="lightblue">Light Blue</option>
+                <option value="lightgreen">Light Green</option>
+                <option value="lightyellow">Light Yellow</option>
+            </select>
+
+            <button onclick="changeFontSize('increase')">Increase Font Size</button>
+            <button onclick="changeFontSize('decrease')">Decrease Font Size</button>
+            <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+            <button onclick="changeFontStyle()">Change Font Style</button>
+        </div>
+    </div>
+
+    <script>
+        function addTask() {
+            const taskInput = document.getElementById("newTask");
+            const taskText = taskInput.value.trim();
+
+            if (taskText === "") return;
+
+            const taskList = document.getElementById("taskList");
+            const listItem = document.createElement("li");
+            const taskSpan = document.createElement("span");
+            taskSpan.textContent = taskText;
+
+            // Append text span to list item
+            listItem.appendChild(taskSpan);
+
+            // Create delete button
+            const deleteBtn = document.createElement("span");
+            deleteBtn.textContent = "X";
+            deleteBtn.className = "close";
+            deleteBtn.onclick = () => deleteTask(listItem);
+            listItem.appendChild(deleteBtn);
+
+            // Add event listeners
+            listItem.ondblclick = () => editTask(taskSpan);
+            listItem.onclick = (e) => {
+                if (e.target.tagName !== "SPAN" || e.target.className !== "close") {
+                    taskSpan.classList.toggle("completed");
+                }
+            };
+
+            taskList.appendChild(listItem);
+            taskInput.value = "";
+        }
+
+        function deleteTask(element) {
+            element.remove();
+        }
+
+        function editTask(element) {
+            const initialText = element.textContent;
+            const inputField = document.createElement("input");
+            inputField.type = "text";
+            inputField.value = initialText;
+            inputField.className = "edit-input";
+            element.replaceWith(inputField);
+            
+            // Save changes on Enter key
+            inputField.addEventListener("keydown", (event) => {
+                if (event.key === "Enter") {
+                    const updatedText = inputField.value.trim();
+                    if (updatedText !== "") {
+                        element.textContent = updatedText;
+                    }
+                    inputField.replaceWith(element);
+                }
+            });
+
+            // Revert on blur if no changes made
+            inputField.addEventListener("blur", () => {
+                inputField.replaceWith(element);
+            });
+
+            inputField.focus();
+        }
+
+        function changeBackgroundColor(color) {
+            document.body.style.backgroundColor = color;
+        }
+
+        function changeFontSize(action) {
+            let currentSize = parseFloat(window.getComputedStyle(document.body).fontSize);
+            if (action === 'increase') {
+                currentSize += 2;
+            } else if (action === 'decrease') {
+                currentSize = Math.max(10, currentSize - 2); // Prevent font size from getting too small
+            }
+            document.body.style.fontSize = currentSize + "px";
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        function changeFontStyle() {
+            document.body.style.fontFamily = document.body.style.fontFamily === 'sans-serif' ? 'serif' : 'sans-serif';
+        }
+    </script>
+
+</body>
+
+</html>
